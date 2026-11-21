@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cao Khắc Quân | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Biến màu sắc & thiết lập chung */
+        :root {
+            --bg: #050214;
+            --card: rgba(22, 16, 54, 0.65);
+            --border: rgba(255, 255, 255, 0.12);
+            --text: #ffffff;
+            --muted: #94a3b8;
+            --grad: linear-gradient(135deg, #a855f7, #6366f1, #06b6d4);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        .container { width: 92%; max-width: 1050px; margin: 0 auto; }
+        .grad-text { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Thanh điều hướng */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 50;
+            background: rgba(5, 2, 20, 0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+        .nav-links { display: flex; gap: 22px; font-size: 0.95rem; color: var(--muted); }
+        .nav-links a:hover { color: #fff; }
+
+        /* Thẻ kính mờ & Nút bấm */
+        .card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 22px; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-4px); border-color: #8b5cf6; }
+        .btn {
+            display: inline-block; padding: 11px 22px; border-radius: 10px;
+            font-weight: 600; font-size: 0.92rem; cursor: pointer; border: none;
+        }
+        .btn-main { background: var(--grad); color: #fff; }
+        .btn-sub { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--border); }
+
+        /* Phần mở đầu (Hero) */
+        .hero { padding: 120px 0 60px; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 36px; align-items: center; }
+        .hero h1 { font-size: 2.7rem; font-weight: 800; line-height: 1.2; margin: 12px 0; }
+        .hero p { color: var(--muted); margin-bottom: 24px; }
+        .photo-box {
+            width: 100%; max-width: 280px; aspect-ratio: 3/4; margin: 0 auto;
+            border-radius: 22px; padding: 4px; background: var(--grad);
+        }
+        .photo-box img {
+            width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+            border-radius: 18px; display: block; background: #131325;
+        }
+
+        /* Bố cục các mục (Section) */
+        section { padding: 65px 0; }
+        h2 { font-size: 1.9rem; margin-bottom: 24px; text-align: center; }
+        .grid-2 { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 28px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+        /* Thẻ nhãn (Tags) & Kỹ năng */
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .tag {
+            font-size: 0.8rem; padding: 4px 10px; border-radius: 8px;
+            background: rgba(139, 92, 246, 0.18); color: #c4b5fd;
+        }
+
+        /* Form liên hệ */
+        input, textarea {
+            width: 100%; padding: 11px; margin: 8px 0 14px; border-radius: 10px;
+            border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: #fff; font-family: inherit;
+        }
+        footer { text-align: center; padding: 28px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero, .grid-2 { grid-template-columns: 1fr; text-align: center; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. THANH ĐIỀU HƯỚNG -->
+    <header>
+        <nav class="container">
+            <a href="#" style="font-weight: 800; font-size: 1.2rem;" class="grad-text">KhắcQuân.dev</a>
+            <div class="nav-links">
+                <a href="#about">Giới thiệu</a>
+                <a href="#projects">Dự án</a>
+                <a href="#skills">Kỹ năng</a>
+                <a href="#contact">Liên hệ</a>
+            </div>
+            <span style="font-size: 0.85rem; color: #67e8f9;">📍 Nghệ An, VN</span>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- 2. PHẦN MỞ ĐẦU (HERO) -->
+        <section class="hero">
+            <div>
+                <span class="tag">Sẵn sàng cho dự án mới</span>
+                <h1>Xin chào, tôi là <br><span class="grad-text">Cao Khắc Quân</span></h1>
+                <p>Lập trình viên đam mê xử lý ảnh (Computer Vision) với Python và thiết kế giao diện web hiện đại, tối ưu trải nghiệm người dùng.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="#projects" class="btn btn-main">Xem Dự Án</a>
+                    <a href="#contact" class="btn btn-sub">Liên Hệ Ngay</a>
+                </div>
+            </div>
+
+            <!-- ẢNH 1: Đặt tệp anh1.png cùng thư mục với index.html -->
+            <div class="photo-box">
+                <img src="assets/anh1.png" alt="Cao Khắc Quân">
+            </div>
+        </section>
+
+        <!-- 3. GIỚI THIỆU BẢN THÂN -->
+        <section id="about">
+            <h2 class="grad-text">Giới Thiệu Bản Thân</h2>
+            <div class="grid-2">
+                <!-- ẢNH 2: Đặt tệp anh2.png cùng thư mục với index.html -->
+                <div class="photo-box" style="max-width: 260px;">
+                    <img src="assets/anh1.png" alt="Chân dung Cao Khắc Quân">
+                </div>
+
+                <div class="card">
+                    <p style="font-size: 1.05rem; margin-bottom: 20px;">
+                        “Bắt đầu từ sự tò mò, giờ đã thành đam mê. Tôi thích thử nghiệm với code, khám phá công nghệ mới và biến ý tưởng thành sản phẩm chạy được, từ xử lý ảnh bằng Python đến giao diện web.”
+                    </p>
+                    <div class="grid-3" style="text-align: center;">
+                        <div><strong class="grad-text" style="font-size: 1.6rem;">3+</strong><br><small style="color:var(--muted)">Dự án</small></div>
+                        <div><strong class="grad-text" style="font-size: 1.6rem;">3</strong><br><small style="color:var(--muted)">Chứng chỉ</small></div>
+                        <div><strong class="grad-text" style="font-size: 1.6rem;">3</strong><br><small style="color:var(--muted)">Năm kinh nghiệm</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. DỰ ÁN TIÊU BIỂU -->
+        <section id="projects">
+            <h2 class="grad-text">Dự Án Tiêu Biểu</h2>
+            <div class="grid-3">
+                <article class="card">
+                    <h3>SmartOCR Scanner</h3>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 8px;">Nhận diện chữ tiếng Việt từ ảnh chụp hóa đơn và giấy tờ tự động bằng xử lý ảnh Python.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">OCR</span></div>
+                </article>
+
+                <article class="card">
+                    <h3>Personal Portfolio UI</h3>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 8px;">Trang web giới thiệu bản thân phong cách Dark Mode tối giản bằng HTML5, CSS3 &amp; JavaScript.</p>
+                    <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+                </article>
+
+                <article class="card">
+                    <h3>VisionTrack AI</h3>
+                    <p style="color: var(--muted); font-size: 0.92rem; margin-top: 8px;">Hệ thống phân tích video thời gian thực giúp phát hiện và đếm lưu lượng đối tượng.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">YOLOv8</span><span class="tag">OpenCV</span></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. KỸ NĂNG -->
+        <section id="skills">
+            <h2 class="grad-text">Kỹ Năng &amp; Công Cụ</h2>
+            <div class="card" style="text-align: center;">
+                <div class="tags" style="justify-content: center; gap: 12px;">
+                    <span class="tag">🐍 Python</span>
+                    <span class="tag">👁️ OpenCV</span>
+                    <span class="tag">🌐 HTML5 &amp; CSS3</span>
+                    <span class="tag">⚡ JavaScript</span>
+                    <span class="tag">🗄️ SQL</span>
+                    <span class="tag">⚙️ C++</span>
+                    <span class="tag">🖌️ Figma</span>
+                    <span class="tag">🐙 Git &amp; GitHub</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. LIÊN HỆ -->
+        <section id="contact">
+            <h2 class="grad-text">Liên Hệ</h2>
+            <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+                <div class="card">
+                    <h3 style="margin-bottom: 14px;">Thông tin trực tiếp</h3>
+                    <p style="margin-bottom: 10px;">📍 <strong>Địa điểm:</strong> Nghệ An, Việt Nam</p>
+                    <p style="margin-bottom: 10px;">📧 <strong>Email:</strong> caokhacquan03@gmail.com</p>
+                    <p style="margin-bottom: 18px;">📱 <strong>Zalo / SĐT:</strong> 0898018293</p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="https://www.facebook.com/khac.quan.3950" target="_blank" class="btn btn-sub">Facebook ↗</a>
+                        <a href="https://github.com/caokhacquan66" target="_blank" class="btn btn-sub">GitHub ↗</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-bottom: 8px;">Gửi lời nhắn</h3>
+                    <form id="contactForm">
+                        <input type="text" id="senderName" placeholder="Tên của bạn..." required>
+                        <textarea id="senderMsg" rows="3" placeholder="Nội dung lời nhắn..." required></textarea>
+                        <button type="submit" class="btn btn-main" style="width: 100%;">Gửi lời nhắn</button>
+                    </form>
+                    <p id="formNotice" style="color: #34d399; font-size: 0.9rem; margin-top: 10px;"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Cao Khắc Quân — Nghệ An, Việt Nam.</p>
+    </footer>
+
+    <script>
+        // Xử lý gửi lời nhắn đơn giản không tải lại trang
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("senderName").value.trim();
+            document.getElementById("formNotice").textContent = "Cảm ơn " + name + "! Lời nhắn của bạn đã được ghi nhận.";
+            this.reset();
+        });
+    </script>
+</body>
+</html>
